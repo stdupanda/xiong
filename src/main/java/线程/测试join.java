@@ -9,6 +9,7 @@ public class 测试join {
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}
+		System.out.println("ok");
 	}
 }
 
@@ -17,6 +18,11 @@ class R1 implements Runnable{
 	@Override
 	public void run() {
 		System.out.println("t1");
+		try {
+            Thread.sleep(2000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
 	}
 	
 }
