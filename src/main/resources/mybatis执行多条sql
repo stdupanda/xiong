@@ -1,0 +1,1 @@
+jdbc:mysql://127.0.0.1:3306/xz?useUnicode=true8zeroDateTimeBehavior=convertToNull8characterEncoding=UTF-8&allowMultiQueries=true
