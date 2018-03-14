@@ -24,4 +24,7 @@
     <rabbit:listener-container connection-factory="connectionFactory" acknowledge="auto">
         <rabbit:listener queues="queue" ref="MQConsumerService"/>
     </rabbit:listener-container>
+    <rabbit:listener-container connection-factory="connectionFactory" acknowledge="manual">
+        <rabbit:listener queues="queue2" ref="MQConsumerService2"/>
+    </rabbit:listener-container>
 </beans>
