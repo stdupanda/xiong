@@ -54,7 +54,7 @@ public class RedisLockDao {
         }
 
         if (null == connection) {
-            LOGGER.error("get null redis connection !");
+            LOGGER.error("got null redis connection !");
             return false;
         }
 
@@ -65,7 +65,7 @@ public class RedisLockDao {
             if (lockResult) {
                 LOGGER.debug("setNX ok! cost: {} ns", period);
                 redisTemplate.expire(key, timeout, timeUnit);
-                LOGGER.debug("expire ok!");
+                LOGGER.debug("set expire ok!");
                 close(connection);
                 return true;
             }
@@ -81,7 +81,8 @@ public class RedisLockDao {
         try {
             Long s = redisBaseDao.get(key);
             long tmp;
-            if ((tmp = s - System.nanoTime()) > timeout) {
+            long timeoutNano = timeUnit.toNanos(timeout);
+            if ((tmp = s - System.nanoTime()) > timeoutNano) {
                 LOGGER.debug("old val:{}", s);
                 LOGGER.info("key: {} has expired for {} ns.", key, tmp);
                 // 锁已超时
