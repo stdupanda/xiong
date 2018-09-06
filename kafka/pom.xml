@@ -26,8 +26,8 @@
             <artifactId>kafka-clients</artifactId>
             <version>1.1.0</version>
         </dependency>
-        <!-- <dependency> <groupId>org.apache.kafka</groupId> <artifactId>kafka_2.12</artifactId> 
-            <version>1.1.0</version> </dependency> <dependency> <groupId>org.apache.kafka</groupId> 
+        <!-- <dependency> <groupId>org.apache.kafka</groupId> <artifactId>kafka_2.12</artifactId>
+            <version>1.1.0</version> </dependency> <dependency> <groupId>org.apache.kafka</groupId>
             <artifactId>kafka-streams</artifactId> <version>1.1.0</version> </dependency> -->
         <dependency>
             <groupId>junit</groupId>

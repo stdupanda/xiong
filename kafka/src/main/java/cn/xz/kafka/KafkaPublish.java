@@ -15,7 +15,7 @@ public class KafkaPublish {
         properties.put("retries", 0);
         properties.put("batch.size", 10);
         properties.put("linger.ms", 1);
-        properties.put("request.required.acks","-1"); 
+        properties.put("request.required.acks","-1");
         properties.put("buffer.memory", 33554432);
         properties.put("key.serializer", "org.apache.kafka.common.serialization.StringSerializer");
         properties.put("value.serializer", "org.apache.kafka.common.serialization.StringSerializer");
