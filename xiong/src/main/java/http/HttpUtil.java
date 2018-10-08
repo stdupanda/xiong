@@ -2,6 +2,7 @@ package http;
 
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
+import net.sf.json.JSONObject;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
@@ -78,6 +79,70 @@ public class HttpUtil {
         } finally {
             method.releaseConnection();
         }
+    }
+
+    public static JSONObject sendHttp(String reqURL, String data) {
+        logger.debug("reqUrl : " + reqURL);
+        logger.debug("data : " + data);
+        JSONObject jsonObject;
+        CloseableHttpClient httpClient;
+        if (org.apache.commons.lang.StringUtils.isNotBlank(reqURL) && reqURL.startsWith("https")) {
+            boolean ifVerifySslCert = false;
+            logger.debug("connecting https URL.");
+            logger.debug("read config if_verify_ssl_cert:" + ifVerifySslCert);
+            if (!ifVerifySslCert) {
+                // 不验证 ssl 证书
+                // 没有服务器证书，采用自定义 信任机制
+                try {
+                    SSLContext sslContext = SSLContexts.custom().loadTrustMaterial(null, new TrustStrategy() {
+                        @Override
+                        public boolean isTrusted(X509Certificate[] chain, String authType) throws CertificateException {
+                            return true;// 信任所有
+                        }
+                    }).build();
+                    SSLConnectionSocketFactory factory = new SSLConnectionSocketFactory(sslContext,
+                            new HostnameVerifier() {
+                                @Override
+                                public boolean verify(String s, SSLSession sslSession) {
+                                    return true;
+                                }
+                            });
+                    httpClient = HttpClients.custom().setSSLSocketFactory(factory).build();
+                } catch (Exception e) {
+                    logger.error("ssl config error!", e);
+                    httpClient = HttpClients.createDefault();
+                }
+            } else {
+                logger.debug("需要验证 ssl 证书.");
+                logger.debug("暂未实现加载自定义 ssl 证书.");
+                httpClient = HttpClients.createDefault();
+            }
+        } else {
+            httpClient = HttpClients.createDefault();
+        }
+        HttpPost method = new HttpPost(reqURL);
+
+        StringEntity entity = new StringEntity(data, "utf-8");//
+        entity.setContentEncoding("UTF-8");
+        entity.setContentType("application/json");
+        method.setEntity(entity);
+
+        try {
+            HttpResponse resp = httpClient.execute(method);
+            logger.info("sendHttp -- Recv Protocal !");
+            HttpEntity HttpResp = resp.getEntity();
+            String charset = EntityUtils.toString(HttpResp, "utf-8");
+            logger.debug("received result:" + charset);
+            jsonObject = JSONObject.fromObject(charset);
+
+        } catch (Exception e) {
+            logger.error("sendHttp -- Send error !,The message :"
+                    + e.getMessage());
+            return null;
+        } finally {
+            method.releaseConnection();
+        }
+        return jsonObject;
     }
 
     /**
