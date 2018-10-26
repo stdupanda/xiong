@@ -16,6 +16,17 @@ public class PropertiesUtil {
     private static final Logger LOGGER = LoggerFactory.getLogger(PropertiesUtil.class);
     private static final String filePath = "bus.properties";// 编译后位于 classpath 路径下
 
+    /**
+     *
+     Util.class.getResource("").toString(); // 对应 file:/c:/xxx/WEB-INF/classes/com/site/db/
+     Util.class.getResource("/").toString(); //对应 file:/c:/xxx/WEB-INF/classes
+     Util.class.getClassLoader().getResource("").toString(); //对应 file:/c:/xxx/WEB-INF/classes
+     Thread.currentThread().getContextClassLoader().getResource("").getPath(); //对应 /c:/xxx/WEB-INF/classes
+
+     https://www.cnblogs.com/duoting/p/4141044.html
+
+     */
+
     public static Properties getProperties() {
         Properties properties = new Properties();
         PropertiesUtil p = new PropertiesUtil();
