@@ -21,7 +21,7 @@
         </commentGenerator>
 
         <jdbcConnection driverClass="com.mysql.jdbc.Driver"
-                        connectionURL="jdbc:mysql://192.168.1.241:3306/hce_guiyang?characterEncoding=UTF-8"
+                        connectionURL="jdbc:mysql://192.168.1.241:3306/hce_guiyang?characterEncoding=UTF-8&amp;useSSL=false"
                         userId="root" password="Cec@123456">
         </jdbcConnection>
 
