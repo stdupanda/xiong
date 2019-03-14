@@ -53,7 +53,7 @@
     </appender>
 
     <!-- root/logger需定义在尾部 -->
-    <root level="debug">
+    <root level="trace">
         <appender-ref ref="console"/>
         <!--<appender-ref ref="file"/>-->
     </root>

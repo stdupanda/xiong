@@ -11,6 +11,7 @@ import java.util.List;
 
 public class Run {
     public static void main(String[] args) throws Exception {
+        System.out.println("begin");
         String fileName = "generatorConfig.xml";
         List<String> warnings = new ArrayList<>();
         InputStream resourceAsStream = Run.class.getClassLoader().getResourceAsStream(fileName);

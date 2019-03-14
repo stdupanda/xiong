@@ -21,7 +21,7 @@
         </commentGenerator>
 
         <jdbcConnection driverClass="com.mysql.jdbc.Driver"
-                        connectionURL="jdbc:mysql://192.168.1.241:3306/cloud_card?characterEncoding=UTF-8&amp;useSSL=false"
+                        connectionURL="jdbc:mysql://192.168.1.241:3306/cloud_card?characterEncoding=UTF-8&amp;useSSL=false&amp;tinyInt1isBit=false"
                         userId="root" password="Cec@123456">
         </jdbcConnection>
 
