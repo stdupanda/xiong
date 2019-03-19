@@ -63,6 +63,18 @@
         <!--<table tableName="bestpay_notice"/>-->
         <!--<table tableName="cloud_mq_record"/>-->
         <!--<table tableName="cloud_card_pool"/>-->
-        <table tableName="core_recharge_record"/>
+        <table tableName="corx%" >
+            <generatedKey column="id" sqlStatement="MySql" identity="true" />
+            <columnRenamingRule searchString="^CUST_" replaceString="" />
+        </table>
+        <table tableName="core_recharge_record">
+            <generatedKey column="recharge_id" sqlStatement="MySql" identity="true" />
+        </table>
+        <!--<table tableName="core_sys_param">-->
+            <!--<generatedKey column="param_id" sqlStatement="MySql" identity="true"/>-->
+        <!--</table>-->
+        <!--<table tableName="core_card_info">-->
+            <!--<generatedKey column="card_id" sqlStatement="MySql" identity="true"/>-->
+        <!--</table>-->
     </context>
 </generatorConfiguration>
