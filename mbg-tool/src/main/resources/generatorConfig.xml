@@ -4,14 +4,14 @@
         "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
 
 <generatorConfiguration>
-    <properties resource="my.properties" />
+    <properties resource="config.properties" />
     <classPathEntry location="D:/mysql-connector-java-5.1.46.jar"/>
     <context id="mbg-tool" targetRuntime="MyBatis3" defaultModelType="flat">
         <property name="javaFileEncoding" value="UTF-8"/>
 
         <plugin type="org.mybatis.generator.plugins.SerializablePlugin"/>
         <plugin type="org.mybatis.generator.plugins.FluentBuilderMethodsPlugin"/>
-        <!--<plugin type="org.mybatis.generator.plugins.RowBoundsPlugin"/>-->
+        <plugin type="org.mybatis.generator.plugins.RowBoundsPlugin"/>
         <plugin type="org.mybatis.generator.plugins.ToStringPlugin"/>
 
         <commentGenerator type="cn.mbg.plugins.DbRemarksCommentGenerator">
@@ -20,9 +20,9 @@
             <property name="addRemarkComments" value="true"/>
         </commentGenerator>
 
-        <jdbcConnection driverClass="com.mysql.jdbc.Driver"
-                        connectionURL="jdbc:mysql://192.168.1.241:3306/cloud_card?characterEncoding=UTF-8&amp;useSSL=false&amp;tinyInt1isBit=false"
-                        userId="root" password="Cec@123456">
+        <jdbcConnection driverClass="${db.driver-class}"
+                        connectionURL="${db.url}"
+                        userId="${db.user}" password="${db.password}">
         </jdbcConnection>
 
         <javaTypeResolver>
@@ -30,19 +30,19 @@
         </javaTypeResolver>
 
         <!--<javaModelGenerator targetPackage="com.cecurs.busCloudCardCoreService.entity" targetProject="${user.home}/mbg">-->
-        <javaModelGenerator targetPackage="${package.prefix}.entity" targetProject="${user.home}/mbg">
+        <javaModelGenerator targetPackage="${package.entity}" targetProject="${user.home}/mbg">
             <property name="enableSubPackages" value="true"/>
             <property name="trimStrings" value="true"/>
         </javaModelGenerator>
 
         <!--<sqlMapGenerator targetPackage="sql" targetProject="${user.home}/mbg">-->
-        <sqlMapGenerator targetPackage="${xml.path}" targetProject="${user.home}/mbg">
+        <sqlMapGenerator targetPackage="${package.xml}" targetProject="${user.home}/mbg">
             <property name="enableSubPackages" value="true"/>
         </sqlMapGenerator>
 
         <!-- ANNOTATEDMAPPER-->
         <!--<javaClientGenerator targetPackage="com.cecurs.busCloudCardCoreService.dao" targetProject="${user.home}/mbg" type="XMLMAPPER">-->
-        <javaClientGenerator targetPackage="${package.prefix}.dao" targetProject="${user.home}/mbg" type="XMLMAPPER">
+        <javaClientGenerator targetPackage="${package.dao}" targetProject="${user.home}/mbg" type="XMLMAPPER">
             <property name="enableSubPackages" value="true"/>
             <!--<property name="rootInterface" value=""/>-->
         </javaClientGenerator>

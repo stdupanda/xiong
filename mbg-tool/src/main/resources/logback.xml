@@ -11,7 +11,7 @@
             <pattern>${LAYOUT_PATTERN}</pattern>
         </encoder>
         <filter class="ch.qos.logback.classic.filter.LevelFilter">
-            <level>DEBUG</level>
+            <level>TRACE</level>
             <onMatch>ACCEPT</onMatch>
             <onMismatch>ACCEPT</onMismatch><!-- DENY -->
         </filter>
