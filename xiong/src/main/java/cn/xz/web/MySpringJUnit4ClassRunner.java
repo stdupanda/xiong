@@ -20,7 +20,7 @@ public class MySpringJUnit4ClassRunner extends SpringJUnit4ClassRunner{
 			System.err.println("Cannot Initialize log4j");
 		}
 	}
-	
+
 	public MySpringJUnit4ClassRunner(Class<?> clazz) throws InitializationError {
 		super(clazz);
 	}
