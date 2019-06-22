@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>cn.test</groupId>
@@ -16,6 +16,39 @@
         <maven.compiler.source>1.7</maven.compiler.source>
         <maven.compiler.target>1.7</maven.compiler.target>
     </properties>
+
+    <profiles>
+        <profile>
+            <id>x86</id>
+            <activation>
+                <os>
+                    <arch>x86</arch>
+                </os>
+            </activation>
+            <dependencies>
+                <dependency>
+                    <groupId>org.eclipse.swt</groupId>
+                    <artifactId>org.eclipse.swt.win32.win32.x86</artifactId>
+                    <version>4.3</version>
+                </dependency>
+            </dependencies>
+        </profile>
+        <profile>
+            <id>x64</id>
+            <activation>
+                <os>
+                    <arch>x64</arch>
+                </os>
+            </activation>
+            <dependencies>
+                <dependency>
+                    <groupId>org.eclipse.swt</groupId>
+                    <artifactId>org.eclipse.swt.win32.win32.x86_64</artifactId>
+                    <version>4.3</version>
+                </dependency>
+            </dependencies>
+        </profile>
+    </profiles>
 
     <dependencies>
         <dependency>
@@ -32,11 +65,6 @@
             <groupId>org.eclipse</groupId>
             <artifactId>swt</artifactId>
             <version>3.3.0-v3346</version>
-        </dependency>
-        <dependency>
-            <groupId>org.eclipse.swt</groupId>
-            <artifactId>org.eclipse.swt.win32.win32.x86</artifactId>
-            <version>4.3</version>
         </dependency>
 
         <dependency>
@@ -59,7 +87,7 @@
                     </configuration>
                 </plugin>
                 <plugin>
-                    <artifactId> maven-assembly-plugin </artifactId>
+                    <artifactId>maven-assembly-plugin</artifactId>
                     <version>2.6</version>
                     <configuration>
                         <descriptorRefs>
