@@ -8,6 +8,7 @@
     <artifactId>browser</artifactId>
     <version>0.0.1-SNAPSHOT</version>
 
+    <packaging>jar</packaging>
     <name>browser</name>
     <url>http://www.baidu.com</url>
 
@@ -19,7 +20,7 @@
 
     <profiles>
         <profile>
-            <id>x86</id>
+            <id>32</id>
             <activation>
                 <os>
                     <arch>x86</arch>
@@ -34,7 +35,7 @@
             </dependencies>
         </profile>
         <profile>
-            <id>x64</id>
+            <id>64</id>
             <activation>
                 <os>
                     <arch>x64</arch>
@@ -66,7 +67,6 @@
             <artifactId>swt</artifactId>
             <version>3.3.0-v3346</version>
         </dependency>
-
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
@@ -76,16 +76,9 @@
     </dependencies>
 
     <build>
+        <finalName>browser</finalName>
         <pluginManagement>
             <plugins>
-                <plugin>
-                    <artifactId>maven-compiler-plugin</artifactId>
-                    <version>2.3.2</version>
-                    <configuration>
-                        <source>1.7</source>
-                        <target>1.7</target>
-                    </configuration>
-                </plugin>
                 <plugin>
                     <artifactId>maven-assembly-plugin</artifactId>
                     <version>2.6</version>
