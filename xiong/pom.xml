@@ -1,6 +1,6 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0"
-         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <groupId>cn.xz</groupId>
     <artifactId>xiong</artifactId>
@@ -31,7 +31,7 @@
         <dependency>
             <groupId>com.rabbitmq</groupId>
             <artifactId>amqp-client</artifactId>
-            <version>4.3.0</version>
+            <version>5.8.0</version>
         </dependency>
         <dependency>
             <groupId>org.springframework.integration</groupId>
@@ -128,12 +128,12 @@
         <dependency>
             <groupId>com.fasterxml.jackson.core</groupId>
             <artifactId>jackson-core</artifactId>
-            <version>2.7.9</version>
+            <version>2.10.1</version>
         </dependency>
         <dependency>
             <groupId>com.fasterxml.jackson.core</groupId>
             <artifactId>jackson-databind</artifactId>
-            <version>2.7.9</version>
+            <version>2.10.1</version>
         </dependency>
         <dependency>
             <groupId>commons-net</groupId>
@@ -254,7 +254,7 @@
             <scope>provided</scope>
         </dependency>
         <dependency>
-        <groupId>com.alibaba</groupId>
+            <groupId>com.alibaba</groupId>
             <artifactId>transmittable-thread-local</artifactId>
             <version>2.11.0</version>
         </dependency>
