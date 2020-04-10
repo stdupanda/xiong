@@ -1,0 +1,7 @@
+D:\JDNetDiskDownload\stopapp\stopapp\bin\Debug\stopapp.exe
+D:\JDNetDiskDownload\stopapp\stopapp\bin\Debug\stopapp.pdb
+D:\JDNetDiskDownload\stopapp\stopapp\obj\Debug\stopapp.csprojResolveAssemblyReference.cache
+D:\JDNetDiskDownload\stopapp\stopapp\obj\Debug\stopapp.MainForm.resources
+D:\JDNetDiskDownload\stopapp\stopapp\obj\Debug\stopapp.csproj.GenerateResource.Cache
+D:\JDNetDiskDownload\stopapp\stopapp\obj\Debug\stopapp.exe
+D:\JDNetDiskDownload\stopapp\stopapp\obj\Debug\stopapp.pdb
