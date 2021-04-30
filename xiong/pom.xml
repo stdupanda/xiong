@@ -21,7 +21,7 @@
             <dependency>
                 <groupId>org.springframework</groupId><!-- 在引入BOM之后，引入其他Spring依赖时，都无需指定版本 -->
                 <artifactId>spring-framework-bom</artifactId>
-                <version>4.3.7.RELEASE</version>
+                <version>4.3.29.RELEASE</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
